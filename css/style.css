@@ -1,12 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;500&family=Roboto:wght@300&display=swap');
+
+#map {
+  height: 100%;
+}
+
+/* 
+ * Optional: Makes the sample page fill the window. 
+ */
 html,
 body {
   height: 100%;
-}
-body {
   margin: 0;
-  font-family: sans-serif;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
 }
 
 .container{
-    color: blue;
+  color: blue;
 }
