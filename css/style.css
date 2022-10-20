@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;500&family=Roboto:wght@300&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;500&family=Roboto:wght@300&display=swap");
 #map {
   height: 100%;
 }
@@ -12,9 +11,11 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
-.container{
-  color: blue;
+.container {
+  color: aqua;
 }
+
+/*# sourceMappingURL=style.css.map */
