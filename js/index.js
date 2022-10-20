@@ -1,4 +1,5 @@
 import data from './data.js'
+import  creationContentMap  from './dom.js'
 
 
 
@@ -6,7 +7,7 @@ async function initMap() {
 
     const collectionData = await  data('../data/items.json');
     const positions = collectionData.properties;
-
+    let returnDom = {}
 
     const map = new google.maps.Map(document.getElementById("map"), {
       zoom: 13,
@@ -37,9 +38,16 @@ async function initMap() {
         infoWindow.setContent(textLabel);
         infoWindow.open(map, marker);
 
-        console.log(position);
+         returnDom = creationContentMap(position);
       });
       return marker;
+    });
+
+
+    const content_otherCharacterist_btn = document.querySelector('.content_otherCharacterist_btn');
+
+    content_otherCharacterist_btn.addEventListener('click', ()=>{
+      verMasCaracteristicas(returnDom)
     });
   
  
@@ -47,4 +55,9 @@ async function initMap() {
   }
   
   
+  
   window.initMap = initMap;
+
+  function verMasCaracteristicas(characterist){
+console.log(characterist);
+  }
