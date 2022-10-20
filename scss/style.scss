@@ -4,9 +4,6 @@
   height: 100%;
 }
 
-/* 
- * Optional: Makes the sample page fill the window. 
- */
 html,
 body {
   height: 100%;
@@ -16,5 +13,19 @@ body {
 }
 
 .container{
-    color: aqua;
+   display: grid;
+   grid-template-columns: 70% 30%;
+   height: 100vh;
+}
+
+.maker-general{
+  background-color: #011a33 !important;
+  border-radius: 10px;
+  padding: 0.5rem;
+  color: white !important;
+
+  &:before{
+    color: #00ba26;
+    content: "USD$ ";
+  }
 }
