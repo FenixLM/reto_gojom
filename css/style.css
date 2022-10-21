@@ -32,6 +32,19 @@ body {
   height: auto;
   margin: 1.5rem 2rem;
 }
+.content #sinDataPunto {
+  margin: auto;
+  display: block;
+  text-align: center;
+}
+.content #sinDataPunto img {
+  width: 250px;
+}
+.content #dataPunto {
+  width: 100%;
+  height: 26.5;
+  display: none;
+}
 .content_header {
   display: flex;
   justify-content: space-between;
@@ -105,6 +118,7 @@ body {
 .content_price {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 0.3rem;
 }
 .content_price_name {
   margin-bottom: 0;
@@ -161,6 +175,43 @@ body {
 }
 .content_otherCharacterist {
   margin-top: 2rem;
+}
+.content_otherCharacterist #sheetCharacterist {
+  padding: 1rem;
+  position: fixed;
+  left: 71.5%;
+  transform: translate(50%, 10%);
+  bottom: 0px;
+  width: 26.7%;
+  height: 55%;
+  background-color: white;
+  transform: translateY(100%);
+  transition: all 0.5s ease-out;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+.content_otherCharacterist #sheetCharacterist.active {
+  display: block;
+  transform: translateY(0);
+}
+.content_otherCharacterist #sheetCharacterist .sheetCharacterist_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.content_otherCharacterist #sheetCharacterist .sheetCharacterist_content {
+  height: 85%;
+  overflow-y: auto;
+  text-align: start;
+}
+.content_otherCharacterist #sheetCharacterist .sheetCharacterist_content .divOtherCharactGrid {
+  margin-bottom: 0.5rem;
+}
+.content_otherCharacterist #sheetCharacterist .sheetCharacterist_content .divOtherCharactGrid::before {
+  font-family: "Material Icons";
+  content: "\e876";
+  color: black;
 }
 .content_otherCharacterist_grid {
   font-size: 13px;
@@ -277,6 +328,22 @@ body {
   }
   .content_otherCharacterist {
     text-align: left;
+  }
+  #sheetCharacterist {
+    position: fixed;
+    left: 0% !important;
+    right: 0%;
+    transform: translate(-50%, 0%) !important;
+    width: 90% !important;
+    transform: translateY(100%) !important;
+    transition: all 0.5s ease-out !important;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+  #sheetCharacterist.active {
+    display: block;
+    transform: translateY(0%) !important;
   }
 }
 

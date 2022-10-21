@@ -1,5 +1,5 @@
 function creationContentMap(positionData) {
-
+    document.getElementById('sheetCharacterist').classList.remove("active");
     // Types header
     const arrayType = [
         {
@@ -22,6 +22,14 @@ function creationContentMap(positionData) {
         divType.innerHTML = type.data;
         content_type.append(divType);
 
+    })
+
+    //Btn close 
+    const btnCerrar = document.getElementById('cerrarid');
+
+    btnCerrar.addEventListener('click', () => {
+        document.getElementById('dataPunto').style.display = 'none'
+        document.getElementById('sinDataPunto').style.display = 'block'
     })
 
 
@@ -134,34 +142,71 @@ function creationContentMap(positionData) {
 
 
     // Other characterist
-    const arrayOtherCharacteristExtra = [];
+    const arrayOtherCharacteristTotal = [];
+    const arrayOtherCharacteristExtra = []
 
     let arrayOtherCharacterist = [];
     arrayOtherCharacterist = positionData.characteristics;
 
     const content_otherCharacterist_grid = document.querySelector('.content_otherCharacterist_grid');
+    const sheetCharacterist_content = document.querySelector('.sheetCharacterist_content');
+    sheetCharacterist_content.innerHTML = ''
+
+    const cerrarSheetCharacterist = document.querySelector('#cerrarSheetCharacterist')
+    cerrarSheetCharacterist.addEventListener('click', () => {
+        document.getElementById('sheetCharacterist').classList.remove("active");
+
+    })
+
     content_otherCharacterist_grid.innerHTML = '';
+    console.log(arrayOtherCharacterist.length);
+
+
+
 
     if (arrayOtherCharacterist.length > 0) {
+        const content_otherCharacterist_btn = document.querySelector('.content_otherCharacterist_btn');
+        content_otherCharacterist_btn.style.display = 'flex'
         arrayOtherCharacterist.map((otherCharact, index) => {
             const divOtherCharactGrid = document.createElement('div');
+            divOtherCharactGrid.classList = 'divOtherCharactGrid';
             divOtherCharactGrid.innerHTML = otherCharact;
+            sheetCharacterist_content.append(divOtherCharactGrid);
 
             if (index >= 0 && index <= 5) {
                 content_otherCharacterist_grid.append(divOtherCharactGrid);
-
             }
             if (index > 5) {
-                arrayOtherCharacteristExtra.push(otherCharact);
+                arrayOtherCharacteristExtra.push(otherCharact)
             }
 
+            // if (index < 5) {
+            //     const content_otherCharacterist_btn = document.querySelector('.content_otherCharacterist_btn');
+            //     content_otherCharacterist_btn.style.display = 'none'
+            // } else {
+            //     const content_otherCharacterist_btn = document.querySelector('.content_otherCharacterist_btn');
+            //     content_otherCharacterist_btn.style.display = 'block'
+            // }
+
+
         })
+    }
+
+    console.log(arrayOtherCharacteristExtra);
+    if (arrayOtherCharacteristExtra.length >= 1) {
+
+        const content_otherCharacterist_btn = document.querySelector('.content_otherCharacterist_btn');
+        content_otherCharacterist_btn.style.display = 'flex'
+    } else {
+        const content_otherCharacterist_btn = document.querySelector('.content_otherCharacterist_btn');
+        content_otherCharacterist_btn.style.display = 'none'
     }
 
 
 
 
-    return { arrayOtherCharacteristExtra }
+
+    return { arrayOtherCharacteristTotal }
 }
 
 export default creationContentMap;
