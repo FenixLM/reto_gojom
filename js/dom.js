@@ -149,8 +149,8 @@ function creationContentMap(positionData) {
     arrayOtherCharacterist = positionData.characteristics;
 
     const content_otherCharacterist_grid = document.querySelector('.content_otherCharacterist_grid');
-    const sheetCharacterist_content = document.querySelector('.sheetCharacterist_content');
-    sheetCharacterist_content.innerHTML = ''
+    // const sheetCharacterist_content = document.querySelector('.sheetCharacterist_content');
+    // sheetCharacterist_content.innerHTML = ''
 
     const cerrarSheetCharacterist = document.querySelector('#cerrarSheetCharacterist')
     cerrarSheetCharacterist.addEventListener('click', () => {
@@ -171,8 +171,8 @@ function creationContentMap(positionData) {
             const divOtherCharactGrid = document.createElement('div');
             divOtherCharactGrid.classList = 'divOtherCharactGrid';
             divOtherCharactGrid.innerHTML = otherCharact;
-            sheetCharacterist_content.append(divOtherCharactGrid);
-
+            // sheetCharacterist_content.append(divOtherCharactGrid);
+            arrayOtherCharacteristTotal.push(otherCharact);
             if (index >= 0 && index <= 5) {
                 content_otherCharacterist_grid.append(divOtherCharactGrid);
             }
@@ -204,7 +204,7 @@ function creationContentMap(positionData) {
 
 
 
-
+    console.log(arrayOtherCharacteristTotal);
 
     return { arrayOtherCharacteristTotal }
 }
