@@ -62,6 +62,9 @@ npm run start
 - Selección de marcador con menos de 6 caracteristicas, no se muestras el boton de ver más caracteristicas.
 ![alt text](https://firebasestorage.googleapis.com/v0/b/felix-lm.appspot.com/o/extras%2FVista%20de%20caracteristicas%20menores%20o%20iguales%20que%206.png?alt=media&token=01ef371d-6974-418a-8eb4-e6978c4f7c22)
 
+- Selección de cambio de moneda.
+![alt text](https://firebasestorage.googleapis.com/v0/b/felix-lm.appspot.com/o/extras%2FIntegracion%20de%20cambio%20de%20moneda.png?alt=media&token=eac9b369-627a-4f23-846c-c2b1b59b40f3)
+
 - Vistas responsive 1.
 ![alt text](https://firebasestorage.googleapis.com/v0/b/felix-lm.appspot.com/o/extras%2FResponsive%201.png?alt=media&token=74f0b01f-5662-46ec-b8c9-16647b5bc9d2)
 

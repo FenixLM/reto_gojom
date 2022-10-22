@@ -3,6 +3,7 @@ import creationContentMap from './dom.js'
 
 let collectionData;
 
+
 /**
  * Carga la data de las características principales
  * @typedef { Object } Filtro
@@ -37,7 +38,7 @@ const verMasCaracteristicas = (characterist) => {
   const sheetCharacterist_content = document.querySelector('.sheetCharacterist_content');
   sheetCharacterist_content.innerHTML = ''
   console.log(characterist);
-  characterist.arrayOtherCharacteristTotal.map(ch => {
+  characterist.arrayOtherCharacteristTotal?.map(ch => {
     const divOtherCharactGrid = document.createElement('div');
     divOtherCharactGrid.classList = 'divOtherCharactGrid';
     divOtherCharactGrid.innerHTML = ch;
@@ -59,7 +60,7 @@ const convertirFormatoMoneda = (cantidad) => {
  * @param { Object } centerData
  * @param { number } zoomData
  */
-const initMap = async (filtro = null, centerData = null, zoomData = 13) => {
+const initMap = async (filtro = null, centerData = null, zoomData = 13, tipoPrice = 'USD') => {
   /** @type { Object } */
   const collectionData = await data('../data/items.json');
 
@@ -83,13 +84,14 @@ const initMap = async (filtro = null, centerData = null, zoomData = 13) => {
 
 
   const markers = positions.map((position, i) => {
-    const textLabel = `${convertirFormatoMoneda(position.usd_price)}`;
+    console.log(tipoPrice);
+    const textLabel = (tipoPrice == 'USD' ? `${convertirFormatoMoneda(position.usd_price)}` : `${convertirFormatoMoneda(position.local_price)}`);
 
     const marker = new google.maps.Marker({
       position: { lat: position.location.latitude, lng: position.location.longitude },
       label: {
         text: textLabel,
-        className: 'maker-general'
+        className: tipoPrice == 'USD' ? 'maker-general' : 'maker-general-pen'
       },
       icon: ' '
     });
@@ -113,29 +115,56 @@ const initMap = async (filtro = null, centerData = null, zoomData = 13) => {
 
   const cluster = new markerClusterer.MarkerClusterer({ markers, map });
 
-  let centerEnviar = null;
-  let zoomEnviar = null;
+  return cluster;
 
-  cluster.addListener("clusteringend", function (cluster) {
-
-    centerEnviar = cluster.map.center.toJSON();
-    zoomEnviar = cluster.map.zoom;
-
-  });
-
-  const selectFiltro = document.getElementById('formFilter');
-
-  selectFiltro.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    const optionsBedrooms = Number(document.getElementById('optionsBedrooms').value);
-    const optionsBathrooms = Number(document.getElementById('optionsBathrooms').value);
-    const optionsGarages = Number(document.getElementById('optionsGarages').value);
-
-    const formData = { optionsBedrooms, optionsBathrooms, optionsGarages }
-
-    initMap(formData, centerEnviar, zoomEnviar)
-  })
 }
 
+
+
+
+
+async function obtenerData(formData = null, centerEnviar = null, zoomEnviar = null, moneda) {
+
+  await initMap(formData, centerEnviar, zoomEnviar, moneda);
+}
+
+
+
+const typePricestatus = document.getElementById('status');
+
+typePricestatus.addEventListener('change', (e) => {
+  const optionsBedrooms = Number(document.getElementById('optionsBedrooms').value);
+  const optionsBathrooms = Number(document.getElementById('optionsBathrooms').value);
+  const optionsGarages = Number(document.getElementById('optionsGarages').value);
+
+  const formData = { optionsBedrooms, optionsBathrooms, optionsGarages }
+
+
+  const checked = e.currentTarget.checked;
+  if (checked) {
+    obtenerData(formData, null, null, 'PEN');
+  } else {
+    obtenerData(formData, null, null, 'USD');
+  }
+
+
+});
+
+
+const selectFiltro = document.getElementById('formFilter');
+
+selectFiltro.addEventListener('submit', (e) => {
+  e.preventDefault();
+  console.log('ddd');
+  const optionsBedrooms = Number(document.getElementById('optionsBedrooms').value);
+  const optionsBathrooms = Number(document.getElementById('optionsBathrooms').value);
+  const optionsGarages = Number(document.getElementById('optionsGarages').value);
+
+  const formData = { optionsBedrooms, optionsBathrooms, optionsGarages }
+
+  initMap(formData)
+})
+
+
 window.initMap = initMap;
+
