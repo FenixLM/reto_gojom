@@ -44,6 +44,13 @@ Si Realizo la instalación correspondiente solo debe realizar el siguiente coman
 cd reto_gojom
 npm run start
 ```
+
+## wakatime
+- Tiempos y ramas.
+![alt text](https://firebasestorage.googleapis.com/v0/b/felix-lm.appspot.com/o/extras%2FWakatime%20felix%20lamadrid%20morales.png?alt=media&token=7676e5ff-867c-4219-9768-164e0acc42c8)
+
+
+
 ## Vistas del proyecto
 - Pagina principal.
 ![alt text](https://firebasestorage.googleapis.com/v0/b/felix-lm.appspot.com/o/extras%2Fpagina%20principal.png?alt=media&token=983244a5-e398-4e3e-9554-cbe9083eaa81)
@@ -73,3 +80,7 @@ npm run start
 
 - Vistas responsive 3.
 ![alt text](https://firebasestorage.googleapis.com/v0/b/felix-lm.appspot.com/o/extras%2FResponsive%203.png?alt=media&token=f0895174-e1b5-46c7-8333-cd271de17161)
+
+
+- Vistas responsive con cambio de moneda.
+![alt text](https://firebasestorage.googleapis.com/v0/b/felix-lm.appspot.com/o/extras%2FCmabio%20de%20moneda%20responsive.png?alt=media&token=899aba16-4b55-4c09-9192-3676d648a0bf)
