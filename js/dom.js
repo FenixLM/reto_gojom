@@ -129,7 +129,7 @@ function creationContentMap(positionData) {
             </div>
 
             <div class="content_characterist_grid-cont-text">
-                <p> ${charact.name} </p>
+                <p> ${charact.nombre} </p>
 
                 <p class="content_characterist_grid-text-detail">
                     ${charact.detail}
