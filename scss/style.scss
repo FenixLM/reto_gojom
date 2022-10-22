@@ -246,34 +246,34 @@ body {
       }
 
 
-      .sheetCharacterist{
-        
-&_header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+      .sheetCharacterist {
+
+        &_header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
 
 
 
-      }
+        }
 
-      &_content{
-        height: 85%;
-        overflow-y: auto;
-        text-align: start;
+        &_content {
+          height: 85%;
+          overflow-y: auto;
+          text-align: start;
 
-        .divOtherCharactGrid {
-          margin-bottom: 0.5rem;
-  
-          &::before {
-  
-            font-family: 'Material Icons';
-            content: '\e876';
+          .divOtherCharactGrid {
+            margin-bottom: 0.5rem;
 
-            color: black;
+            &::before {
+
+              font-family: 'Material Icons';
+              content: '\e876';
+
+              color: black;
+            }
           }
         }
-      }
 
       }
 
@@ -477,4 +477,61 @@ body {
   }
 
 
+}
+
+//formulario
+
+#formFilter {
+
+  margin-top: 2rem;
+}
+
+.field {
+  // background-color: #007bff;
+  margin: 1rem;
+  border-radius: 10px;
+  position: relative;
+
+  select {
+    -webkit-appearance: none;
+    padding: 7px 40px 7px 12px;
+    width: 100%;
+    border: 1px solid #e8eaed;
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: 0 1px 3px -2px #9098a9;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 16px;
+    transition: all 150ms ease;
+
+
+
+  }
+
+  .material-icons {
+    position: absolute;
+    right: 28px;
+    top: calc(30% - 3px);
+    width: 10px;
+    height: 6px;
+    stroke-width: 2px;
+    stroke: #9098a9;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    pointer-events: none;
+  }
+}
+
+.btn-form{
+  cursor: pointer;
+  padding: 1rem;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: inherit;
+  background-color: #f87a34;
+  border-color: #f87a34;
+  border-width: 0ch;
+  color: white;
 }

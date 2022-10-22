@@ -2,16 +2,36 @@ import data from './data.js'
 import creationContentMap from './dom.js'
 
 
-
-async function initMap() {
+async function initMap(filtro = null, centerData = null, zoomData = null) {
 
   const collectionData = await data('../data/items.json');
-  const positions = collectionData.properties;
+
+
+  let positions = collectionData.properties;
+
+
+  if (filtro) {
+    const cantidad = positions.map(p => {
+      p.cantidadBedrooms = p.bedrooms ? Number(p.bedrooms.split(' ')[0]) : 0;
+      p.cantidadBathrooms = p.bathrooms ? Number(p.bathrooms.split(' ')[0]) : 0;
+      p.cantidadGarages = p.garages ? Number(p.garages.split(' ')[0]) : 0;
+      return p
+    });
+
+    positions = cantidad.filter(p => p.cantidadBedrooms >= filtro.optionsBedrooms && p.cantidadBathrooms >= filtro.optionsBathrooms && p.cantidadGarages >= filtro.optionsGarages);
+
+
+  }
+
+  let center = { lat: collectionData.central_geo_point.latitude, lng: collectionData.central_geo_point.longitude }
+
+  centerData = centerData ? centerData : center;
+  zoomData = zoomData ? zoomData : 13
   let returnDom = {}
 
   const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 13,
-    center: { lat: collectionData.central_geo_point.latitude, lng: collectionData.central_geo_point.longitude },
+    zoom: zoomData,
+    center: centerData,
   });
 
 
@@ -46,7 +66,6 @@ async function initMap() {
     return marker;
   });
 
-  // console.log(returnDom.arrayOtherCharacteristExtra);
 
   const content_otherCharacterist_btn = document.querySelector('.content_otherCharacterist_btn');
 
@@ -55,7 +74,37 @@ async function initMap() {
   });
 
 
-  new markerClusterer.MarkerClusterer({ markers, map });
+  const cluster = new markerClusterer.MarkerClusterer({ markers, map });
+
+
+  let centerEnviar = null;
+  let zoomEnviar = null;
+
+  cluster.addListener("clusteringend", function (cluster) {
+
+    centerEnviar = cluster.map.center.toJSON();
+    zoomEnviar = cluster.map.zoom;
+
+  });
+
+  const selectFiltro = document.getElementById('formFilter');
+
+
+  selectFiltro.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+
+    const optionsBedrooms = document.getElementById('optionsBedrooms').value;
+    const optionsBathrooms = document.getElementById('optionsBathrooms').value;
+    const optionsGarages = document.getElementById('optionsGarages').value;
+
+
+    const formData = { optionsBedrooms: Number(optionsBedrooms), optionsBathrooms: Number(optionsBathrooms), optionsGarages: Number(optionsGarages) }
+
+    initMap(formData, centerEnviar, zoomEnviar)
+  })
+
+
 
 }
 
@@ -63,8 +112,9 @@ async function initMap() {
 
 window.initMap = initMap;
 
+
+
 function verMasCaracteristicas(characterist) {
-  console.log(characterist);
 
   const sheet = document.querySelector('#sheetCharacterist');
   sheet.classList.add('active')
@@ -73,3 +123,4 @@ function verMasCaracteristicas(characterist) {
 function convertiFormatoMoneda(cantidad) {
   return cantidad.toLocaleString('es-PE')
 }
+
