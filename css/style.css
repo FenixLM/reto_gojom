@@ -18,10 +18,11 @@ body {
 }
 
 .maker-general {
-  background-color: #011a33 !important;
+  background-color: #1f3651 !important;
   border-radius: 10px;
   padding: 0.5rem;
-  color: white !important;
+  color: #fff !important;
+  font-weight: 600;
 }
 .maker-general:before {
   color: #00ba26;
@@ -122,7 +123,7 @@ body {
 }
 .content_price_name {
   margin-bottom: 0;
-  color: #011a33;
+  color: #1f3651;
 }
 .content_price_usd {
   margin: 0;
@@ -130,11 +131,11 @@ body {
 }
 .content_price_local {
   margin-top: 0;
-  color: #c7cdd7;
+  color: #bcc7d4;
 }
 .content hr {
   margin: 0;
-  border: 1px solid #c7cdd7;
+  border: 1px solid #bcc7d4;
 }
 .content_characterist_grid {
   display: grid;
@@ -184,7 +185,7 @@ body {
   bottom: 0px;
   width: 26.7%;
   height: 55%;
-  background-color: white;
+  background-color: #fff;
   transform: translateY(100%);
   transition: all 0.5s ease-out;
   text-align: center;
@@ -228,14 +229,14 @@ body {
 .content_otherCharacterist_btn {
   margin-top: 2rem;
   cursor: pointer;
-  color: #f87733;
+  color: #f87a34;
   display: flex;
   justify-content: flex-start;
   align-items: start;
   gap: 10px;
 }
 .content_otherCharacterist_btn-icon {
-  background-color: #f87733;
+  background-color: #f87a34;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -244,7 +245,7 @@ body {
   border-radius: 50px;
 }
 .content_otherCharacterist_btn .material-icons {
-  color: white;
+  color: #fff;
 }
 .content_otherCharacterist_btn p {
   margin: auto 0px;
@@ -359,14 +360,15 @@ body {
   -webkit-appearance: none;
   padding: 7px 40px 7px 12px;
   width: 100%;
-  border: 1px solid #e8eaed;
+  border: 1px solid #f87a34;
   border-radius: 5px;
   background: #fff;
-  box-shadow: 0 1px 3px -2px #9098a9;
+  box-shadow: 0 1px 3px -2px #f87a34;
   cursor: pointer;
   font-family: inherit;
   font-size: 16px;
   transition: all 150ms ease;
+  color: #1f3651;
 }
 .field .material-icons {
   position: absolute;
@@ -375,7 +377,6 @@ body {
   width: 10px;
   height: 6px;
   stroke-width: 2px;
-  stroke: #9098a9;
   fill: none;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -391,7 +392,7 @@ body {
   background-color: #f87a34;
   border-color: #f87a34;
   border-width: 0ch;
-  color: white;
+  color: #fff;
 }
 
 /*# sourceMappingURL=style.css.map */

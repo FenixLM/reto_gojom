@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;500&family=Roboto:wght@300&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;500&family=Roboto:wght@300&display=swap');
+@import "./variables.scss";
 
 
 html,
@@ -23,13 +24,14 @@ body {
 }
 
 .maker-general {
-  background-color: #011a33 !important;
+  background-color: $textColor !important;
   border-radius: 10px;
   padding: 0.5rem;
-  color: white !important;
+  color: $white !important;
+  font-weight: 600;
 
   &:before {
-    color: #00ba26;
+    color: $colorTag;
     content: "USD$ ";
   }
 }
@@ -72,24 +74,24 @@ body {
       &_primer {
         padding: 0.5rem;
         border-radius: 20px;
-        background-color: #cefae1;
-        color: #2cba73;
+        background-color: $chipPrimColorBackgroud;
+        color: $chipPrimColor;
 
       }
 
       &_second {
         padding: 0.5rem;
         border-radius: 20px;
-        background-color: #f6e5ff;
-        color: #bd21f6;
+        background-color: $chipSecColorBackgroud;
+        color: $chipSecColor;
       }
     }
 
     &_close {
       cursor: pointer;
-      background-color: #506689;
+      background-color: $btnCerrarColorBackgroud;
       border-radius: 50%;
-      color: white;
+      color: $btnCerrarColor;
       width: 30px;
       height: 30px;
       display: flex;
@@ -135,14 +137,12 @@ body {
       letter-spacing: 0.5px;
       line-height: 23px;
       word-wrap: break-word;
-
     }
-
   }
 
   &_location {
     margin: 1rem 0;
-    color: #bcc7d4;
+    color: $whiteOp;
   }
 
   &_price {
@@ -152,23 +152,23 @@ body {
 
     &_name {
       margin-bottom: 0;
-      color: #011a33;
+      color: $textColor;
     }
 
     &_usd {
       margin: 0;
-      color: #007bff;
+      color: $secondary;
     }
 
     &_local {
       margin-top: 0;
-      color: #c7cdd7;
+      color: $whiteOp;
     }
   }
 
   hr {
     margin: 0;
-    border: 1px solid #c7cdd7;
+    border: 1px solid $whiteOp;
   }
 
   &_characterist {
@@ -190,11 +190,11 @@ body {
           align-items: center;
           width: 50px;
           height: 50px;
-          background-color: #e8eefa;
+          background-color: $whiteOpBackground;
           border-radius: 50%;
 
           .material-icons {
-            color: #007bff;
+            color: $secondary;
           }
         }
 
@@ -210,7 +210,7 @@ body {
 
           &-detail {
             margin: 0 auto;
-            color: #1f3651 !important;
+            color: $textColor !important;
             font-weight: 500;
           }
         }
@@ -220,7 +220,6 @@ body {
   }
 
   &_otherCharacterist {
-
     margin-top: 2rem;
 
     //Style Sheet
@@ -232,7 +231,7 @@ body {
       bottom: 0px;
       width: 26.7%;
       height: 55%;
-      background-color: white;
+      background-color: $white;
       transform: translateY(100%);
       transition: all 0.5s ease-out;
 
@@ -300,14 +299,14 @@ body {
     &_btn {
       margin-top: 2rem;
       cursor: pointer;
-      color: #f87733;
+      color: $primary;
       display: flex;
       justify-content: flex-start;
       align-items: start;
       gap: 10px;
 
       &-icon {
-        background-color: #f87733;
+        background-color: $primary;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -317,7 +316,7 @@ body {
       }
 
       .material-icons {
-        color: white;
+        color: $white;
       }
 
       p {
@@ -487,7 +486,7 @@ body {
 }
 
 .field {
-  // background-color: #007bff;
+  // background-color: $secondary;
   margin: 1rem;
   border-radius: 10px;
   position: relative;
@@ -496,14 +495,15 @@ body {
     -webkit-appearance: none;
     padding: 7px 40px 7px 12px;
     width: 100%;
-    border: 1px solid #e8eaed;
+    border: 1px solid $primary;
     border-radius: 5px;
-    background: #fff;
-    box-shadow: 0 1px 3px -2px #9098a9;
+    background: $white;
+    box-shadow: 0 1px 3px -2px $primary;
     cursor: pointer;
     font-family: inherit;
     font-size: 16px;
     transition: all 150ms ease;
+    color: $textColor;
 
 
 
@@ -516,7 +516,6 @@ body {
     width: 10px;
     height: 6px;
     stroke-width: 2px;
-    stroke: #9098a9;
     fill: none;
     stroke-linecap: round;
     stroke-linejoin: round;
@@ -530,8 +529,8 @@ body {
   border-radius: 10px;
   font-family: inherit;
   font-size: inherit;
-  background-color: #f87a34;
-  border-color: #f87a34;
+  background-color: $primary;
+  border-color: $primary;
   border-width: 0ch;
-  color: white;
+  color: $white;
 }
