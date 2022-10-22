@@ -34,6 +34,17 @@ const cargarCantidadDeCaracteristicas = async (collectionData, filtro = null) =>
 const verMasCaracteristicas = (characterist) => {
   const sheet = document.querySelector('#sheetCharacterist');
   sheet?.classList.add('active');
+  const sheetCharacterist_content = document.querySelector('.sheetCharacterist_content');
+  sheetCharacterist_content.innerHTML = ''
+  console.log(characterist);
+  characterist.arrayOtherCharacteristTotal.map(ch => {
+    const divOtherCharactGrid = document.createElement('div');
+    divOtherCharactGrid.classList = 'divOtherCharactGrid';
+    divOtherCharactGrid.innerHTML = ch;
+    sheetCharacterist_content.append(divOtherCharactGrid);
+  })
+
+
 }
 
 const convertirFormatoMoneda = (cantidad) => {
