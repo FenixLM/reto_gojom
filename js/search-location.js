@@ -19,7 +19,8 @@ function initMap() {
     const request = {
         location: sydney,
         radius: '500',
-        type: ['restaurant']
+        type: ['restaurant'],
+        // keyword: ['cruise'] con palabra clave en la busqueda
     };
 
     service = new google.maps.places.PlacesService(map);
